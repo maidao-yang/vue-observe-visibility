@@ -113,8 +113,16 @@ function unbind (el) {
 	}
 }
 
+function beforeMount (el, binding, vnode) {
+	vnode.context = binding.instance
+	bind(el, binding, vnode)
+}
+
 export default {
 	bind,
 	update,
 	unbind,
+	/* vue3 support */
+	beforeMount,
+	unmounted: unbind,
 }

@@ -29,6 +29,6 @@ if (typeof window !== 'undefined') {
 } else if (typeof global !== 'undefined') {
 	GlobalVue = global.Vue
 }
-if (GlobalVue) {
+if (GlobalVue && typeof GlobalVue.version === 'string' && GlobalVue.version[0] === '2') {
 	GlobalVue.use(plugin)
 }
